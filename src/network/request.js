@@ -6,7 +6,7 @@ export function request(config) {
     // baseURL : 'http://123.207.32.32:8000',
     // baseURL : 'http://123.207.32.32:8000/api/hy',
     baseURL : 'http://106.54.54.237:8000/api/hy',
-    timeout : 5000
+    timeout : 8000
   })
   // 请求拦截
   instance.interceptors.request.use( config => {

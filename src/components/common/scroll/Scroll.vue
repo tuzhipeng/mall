@@ -40,7 +40,7 @@
       })
 
       this.scroll.on('pullingUp', ()=>{
-        console.log("发射pullingUP信号");
+        // console.log("发射pullingUP信号");
         this.$emit('pullingUp')
 
       })
@@ -54,7 +54,7 @@
         this.scroll.finishPullUp()
       },
       refresh(){
-        console.log("--------");
+        console.log("刷新");
         this.scroll.refresh()
       }
     }

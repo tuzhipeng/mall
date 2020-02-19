@@ -84,9 +84,9 @@
         // refresh()
         this.$refs.scroll.refresh()
       })
+
     },
     methods:{
-
 
       tabClick(index){
         switch (index) {
@@ -110,7 +110,7 @@
         this.showTabControl =(-position.y) > this.tabOffsetTop
       },
       loadMore() {
-        console.log("执行loadMore");
+        // console.log("执行loadMore");
         this.getHomeGoods(this.currentType)
       },
       backClick(){

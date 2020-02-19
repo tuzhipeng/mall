@@ -1,6 +1,6 @@
 <template>
-    <div class="goods-item">
-      <img :src="goodsItem.show.img" alt="" @load="itemImageLoad">
+    <div class="goods-item" @click="itemClick">
+      <img :src="showImage" alt="" @load="itemImageLoad">
       <div class="goods-info">
         <p>{{goodsItem.title}}</p>
         <span class="price">{{goodsItem.price}}</span>
@@ -20,9 +20,37 @@
         }
       }
     },
+    computed:{
+      showImage(){
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
+      }
+    },
     methods:{
       itemImageLoad(){
-        this.$bus.$emit('itemImageLoad')
+        // console.log(this.$route.path);
+        // console.log(this.$route.path.indexOf('home'));
+        // console.log(this.$route.path.indexOf('detail'));
+        if (this.$route.path.indexOf('home') >= 0){
+          // console.log("首页imageload信号");
+          this.$bus.$emit('itemImageLoad')
+        }else if (this.$route.path.indexOf('detail') >= 0){
+          // console.log("detail imageload信号");
+          this.$bus.$emit('detailImageLoad')
+        }else {
+          // console.log("没有匹配");
+        }
+
+      },
+      // 为了跳转到详情页
+      itemClick(){
+        const iid = this.goodsItem.iid;
+        console.log(iid);
+        this.$router.push({
+          path:'/detail',
+          query:{
+            iid
+          }
+        })
       }
     }
   }
