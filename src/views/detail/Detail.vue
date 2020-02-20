@@ -14,7 +14,10 @@
         <goods-list ref="recommend" :goods="goodsList"/>
       </scroll>
       <back-top v-show="showBackTop" @click.native="backTop"/>
-      <DetailBottomBar @addToCart="addToCart"/>
+      <keep-alive>
+        <DetailBottomBar @addToCart="addToCart"/>
+      </keep-alive>
+
     </div>
 </template>
 
@@ -77,7 +80,7 @@
     },
     methods:{
       addToCart(){
-        console.log("加入购物车");
+        // console.log("加入购物车");
         const obj = {}
         obj.iid = this.iid
         obj.imgURL = this.topImages[0]
@@ -86,7 +89,10 @@
         obj.price = this.goods.realPrice
         obj.checked = true
 
-        this.$store.dispatch('addToCart', obj)
+        this.$store.dispatch('addToCart', obj).then((res)=>{
+          this.$toast.showMessage(res)
+        })
+
       },
       backTop() {
         this.$refs.scroll.scrollTo(0, 0, 1000)
@@ -150,7 +156,7 @@
       },
       getRecommend() {
         getRecommend().then(res => {
-          console.log(res.data.list);
+          // console.log(res.data.list);
           this.goodsList = res.data.list
         })
       }

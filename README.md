@@ -1,19 +1,16 @@
-# mall
+# Mall：一个用Vue写的练手项目
 
-## Project setup
-```
+## 项目演示地址：[39.107.28.19](http://39.107.28.19)
+
+### 项目启动
+
+```shell
+// 建议安装npm之后换成国内的源，这样安装会快一些
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
+// 运行整个项目
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### 项目说明
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+这个项目是看B站视频跟着做的，老师讲的非常好，对封装有着非常深入的理解，给人的感觉是在讲封装的艺术，只不过载体是Vue，这是[B站视频的链接]( https://www.bilibili.com/video/av89760569 )，大家快去三连呀~
